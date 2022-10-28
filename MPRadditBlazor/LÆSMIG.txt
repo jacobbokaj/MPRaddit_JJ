@@ -1,1 +1,1 @@
-Den hedder TodoList, fordi vi brugte Kristians blazor project, fordi vi havde problemer med "httpClient" med inject DbService når vi lavede vores eget project
+Den hedder TodoList, fordi vi brugte Kristians blazor project, fordi vi havde problemer med "Cannot consume scoped service'System.Net.Htpp.HttpClient' from singleton 'MiniProjectRaddit.Service.DbService'" med inject DbService når vi lavede vores eget project. 
