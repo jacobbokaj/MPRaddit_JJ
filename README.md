@@ -1,3 +1,3 @@
 # MPRaddit_JJ
 
--Bug: When comment created and vote after will not save the vote data. Only after moving away from the page.
+-Bug: Når kommentaren er lavet og votes. Gemmes votes ikke først når man har været væk fra siden/page.
