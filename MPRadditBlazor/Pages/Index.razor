@@ -46,7 +46,6 @@ else
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        StateHasChanged();
 
         //Won't have more than one subsribed to "RefreshPage"
         MainLayoutAndData.RefreshPage -= RefreshPage;
