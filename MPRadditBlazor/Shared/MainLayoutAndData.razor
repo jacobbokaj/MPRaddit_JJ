@@ -14,9 +14,9 @@
         <NavMenu />
     </div>
     <main>
-        @*<div class="top-row px-4">
-            <a href="https://github.com/kdorland/softark-fall-2022/" target="_blank">About</a>
-            </div>*@
+        <div class="top-row px-4">
+            <a href="https://github.com/kdorland/softark-fall-2022/" target="_blank">GitHub Repo</a>  <!-- Sæt vores github repo ind-->
+            </div>
 
         <article class="content px-4">
             @Body
@@ -30,8 +30,9 @@
     public static List<Comment> Comments { get; private set; } = new List<Comment>();
     public static List<ThreadPost> ThreadPosts { get; private set; } = new List<ThreadPost>();
     /// <summary>
-    /// Will example refresh when data are GET,POST or PUT with the SQLite database.
+    //Will Refresh the currently page, when the data is "loaded".
     /// </summary>
+    /// 
     public static event Action RefreshPage;
 
 
@@ -43,12 +44,9 @@
         //Users are the most important to have for making it possible to create threadposts, create comments and vote
         if (Users.Count == 0)
         {
-            Console.WriteLine("Hejsa fra kurt");
             Users = await dbService.GetUsers();
             ThreadPosts = await dbService.GetThreadPosts();
             Comments = await dbService.GetComments();
-
-            Console.WriteLine("ThreadPosts Count: " + ThreadPosts.Count + "  Users: " + Users.Count); ;
             RefreshPage?.Invoke();
         }
     }

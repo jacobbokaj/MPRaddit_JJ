@@ -106,6 +106,7 @@ app.MapPost("api/threadPost", (DataService service,ThreadPost threadPost) =>
 
 
 app.MapPut("api/threadPost/vote",(DataService service,ThreadPostVote threadPostVote) =>{
+    
     service.PutThreadPostVote(threadPostVote.ThreadPost_Id,threadPostVote.Vote);
 });
 

@@ -11,10 +11,23 @@
     border-collapse: separate;
     border-spacing: 50px;
 }
+/* Farve på box i threadpost*/
 .threadbox[b-1tz461fsqd] {
-    background-color: lightgrey;
+    background-color: white;
     width: 300px;
-    border: 15px solid green;
+    border: 5PX solid black;
     padding: 40px;
     margin: 20px;
+}
+
+.backbutton[b-1tz461fsqd] {
+    border-radius: 200px;
+    background-color: #FF4500;
+    border: none;
+}
+
+.postcomment[b-1tz461fsqd] {
+    border-radius: 200px;
+    background-color: #FF4500;
+    border: none;
 }

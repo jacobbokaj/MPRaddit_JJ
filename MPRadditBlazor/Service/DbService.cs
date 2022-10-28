@@ -16,6 +16,7 @@ namespace MiniProjectRaddit.Service
         {
             Console.WriteLine(http);
             this.http = http;
+            //Getting the file data from "appsettings"
             this.configuration = configuration;
             this.baseAPI = configuration["base_api"];
             Console.WriteLine(baseAPI);
@@ -47,15 +48,6 @@ namespace MiniProjectRaddit.Service
 
 
 
-        public async Task PutCommentVote(int comment_id, int vote)
-        {
-            string url = $"{baseAPI}/comment/vote";
-            Console.WriteLine(url);
-            Comment comment = MainLayoutAndData.Comments.FirstOrDefault(c => c.Comment_Id == comment_id);
-            comment.Vote += vote;
-            var posts = await http.PutAsJsonAsync(url,comment);
-        }
-
 
 
         public async Task PostComment(Comment comment)
@@ -64,18 +56,20 @@ namespace MiniProjectRaddit.Service
             var res = await http.PostAsJsonAsync(url, comment);
         }
 
-
-        public async Task PutThreadPostVote(int threadPost_id, int vote)
+        public async Task PutCommentVote(Comment comment)
         {
-            string url = $"{baseAPI}/thread/vote";
-            Console.WriteLine(url);
-            ThreadPost threadPost = MainLayoutAndData.ThreadPosts.FirstOrDefault(t => t.ThreadPost_Id == threadPost_id);
-            threadPost.Vote += vote;
-            var posts = await http.PutAsJsonAsync(url, threadPost);
+            string url = $"{baseAPI}/comment/vote";
+            Console.WriteLine(url);        
+            var posts = await http.PutAsJsonAsync(url,comment);
         }
 
-
-
+        public async Task PutThreadPostVote(ThreadPost threadPost)
+        {
+            string url = $"{baseAPI}/threadPost/vote";
+            Console.WriteLine(url);
+            
+            var posts = await http.PutAsJsonAsync(url, threadPost);
+        }
         public async Task PostThreadPost(ThreadPost threadPost)
         {
             string url = $"{baseAPI}/threadPost";

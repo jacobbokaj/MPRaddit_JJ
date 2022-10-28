@@ -9,6 +9,10 @@ namespace MiniProjectRaddit.Model
         public int User_Id { get; set; }
         public string Title { get; set; }
         public string Text { get; set; }
+
+        /// <summary>
+        /// Could be used in the future.
+        /// </summary>
         public string URL { get; set; }
 
         public DateTime PostDateTime { get; set; }

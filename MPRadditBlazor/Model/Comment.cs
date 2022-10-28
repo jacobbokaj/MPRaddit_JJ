@@ -17,6 +17,9 @@ namespace MiniProjectRaddit.Model
         /// </summary>
         public int ThreadPost_Id { get; set; }
         public string Text { get; set; }
+        /// <summary>
+        /// Could be used in the future.
+        /// </summary>
         public string URL { get; set; }
         public DateTime PostDateTime { get; set; }
         public int Vote { get; set; }

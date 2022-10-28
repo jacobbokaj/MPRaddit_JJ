@@ -5,43 +5,49 @@
 @inject DbService dbService;
 <PageTitle>Create a cool thread post ! :D</PageTitle>
 
-<a href="/"><button type="button" class="btn btn-primary"> Go back to front page</button> </a>
-<EditForm Model="@threadPostNewModel">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
-    <div>
+@if(MainLayoutAndData.Users.Count == 0)
+{
+    <h2>Loading Users.....</h2>
+}else
+{
+    <EditForm Model="@threadPostNewModel">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div>
 
-      
+            <a href="/"><button type="button" class="backbutton2" style="color: white"> Go back to front page</button> </a>
 
-        <h1> Create a post</h1>
-        <p> Who is creating the post?</p>
-        <InputSelect @bind-Value="userName">
-            @foreach (var user in MainLayoutAndData.Users)
-            {
-                <option value="@user.Name">@user.Name</option>
-            }
-        </InputSelect>
-        <br />
-        <br />
-        <p>Title </p>
-        <InputText @bind-Value="threadPostNewModel.Title">
-            Comment
-        </InputText>
-        <br />
-        <br />
-        <p>Text (Optional)</p>
-        <InputText @bind-Value="threadPostNewModel.Text">
-            Comment
-        </InputText>
+            <h1> Create a post</h1>
+            <p> Who is creating the post?</p>
+            <InputSelect @bind-Value="userName">
+                @foreach (var user in MainLayoutAndData.Users)
+                {
+                    <option value="@user.Name">@user.Name</option>
+                }
+            </InputSelect>
+            <br />
+            <br />
+            <p>Title </p>
+            <InputText @bind-Value="threadPostNewModel.Title">
+                Comment
+            </InputText>
+            <br />
+            <br />
+            <p>Text (Optional)</p>
+            <InputText @bind-Value="threadPostNewModel.Text">
+                Comment
+            </InputText>
 
-        <br />
-        <br />
-        <h2>@threadPostCreated</h2>
-        <button type="submit" @onclick="PostThread">Post</button>
-    </div>
+            <br />
+            <br />
+            <h2>@threadPostCreated</h2>
+            <button style="color:white;" class="postbutton" type="submit" @onclick="PostThread">Post thread</button>
+        </div>
 
 
-</EditForm>
+    </EditForm>
+    
+}
 
 
 @code {
@@ -51,8 +57,10 @@
 
     protected override void OnInitialized()
     {
-
-        userName = MainLayoutAndData.Users[0].Name;
+        if(MainLayoutAndData.Users.Count > 0)
+        {
+            userName = MainLayoutAndData.Users[0].Name;           
+        }
         threadPostCreated = string.Empty;
     }
     private void PostThread()
@@ -63,18 +71,14 @@
             if (userName == user.Name)
             {
                 threadPostCreated = "ThreadPost created";
-                ThreadPost threadpost1 = new ThreadPost(Convert.ToInt32(user.User_Id), threadPostNewModel.Title, DateTime.Now, threadPostNewModel.Text, string.Empty);
+                ThreadPost threadPost = new ThreadPost(Convert.ToInt32(user.User_Id), threadPostNewModel.Title, DateTime.Now, threadPostNewModel.Text, string.Empty);
 
-                dbService.PostThreadPost(threadpost1);
+                dbService.PostThreadPost(threadPost);
 
-
-                MainLayoutAndData.ThreadPosts.Add(threadpost1);
+                MainLayoutAndData.ThreadPosts.Add(threadPost);
                 MainLayoutAndData.ThreadPosts[MainLayoutAndData.ThreadPosts.Count - 1].ThreadPost_Id = MainLayoutAndData.ThreadPosts.Count;
-                Console.WriteLine("ThreadPostCount: " + MainLayoutAndData.ThreadPosts.Count);
-                Console.WriteLine(MainLayoutAndData.ThreadPosts[MainLayoutAndData.ThreadPosts.Count - 1].Text);
                 break;
             }
         }
     }
-
 }

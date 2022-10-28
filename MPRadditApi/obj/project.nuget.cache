@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Nk4fEPCmCqMvM6yDyYT2rIcGBLCaGGlgywgwlOb7neRamWbvHN3lh9EeoVadFeeQAEOTCbe52j1Oh/npGKV/ww==",
+  "dgSpecHash": "aBT1wSqLSv9dakodo2o/Ue4IUhwkwAkAqpwVbqogyKyOvGgHe9TL1zCfg5umU/7SUwGLmP4NkrSXh8dmnHTwLA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jacob vestergaard\\documents\\SkoleBlazor\\MPRadditApi-Copy\\MPRadditApi.csproj",
+  "projectFilePath": "C:\\Users\\Jacob vestergaard\\documents\\skoleblazor\\MPRaddit_JJ\\MPRadditApi\\MPRadditApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jacob vestergaard\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Jacob vestergaard\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\6.0.10\\microsoft.aspnetcore.diagnostics.entityframeworkcore.6.0.10.nupkg.sha512",

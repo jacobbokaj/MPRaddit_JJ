@@ -8,11 +8,13 @@
 
 <td> @Id </td>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<a href="/"><button type="button" class="btn btn-primary"> Go back to front page</button> </a>
+
+<a href="/"><button type="button" class="backbutton" style="color: white"> Go back to front page</button> </a>
+
 <!--Makes sure there won't be out of index-->
-@if(MainLayoutAndData.ThreadPosts.Count == 0)
+@if(MainLayoutAndData.Users.Count == 0)
 {
-    <h2>Loading threadPost</h2>
+    <h2>Loading Users.....</h2>
 }else
 {
 <div class="threadbox">
@@ -34,6 +36,7 @@
 
         @foreach (var comment in MainLayoutAndData.Comments)
         {
+            <!--Finds each comments the ThreadPost has-->
             if (MainLayoutAndData.ThreadPosts[Id].ThreadPost_Id == comment.ThreadPost_Id)
             {
                 //tr -> table ?
@@ -43,8 +46,6 @@
                     <td>@comment.PostDateTime</td>
                     <td>@comment.Vote</td>
 
-                    <!-- <a href="/post/snabelA post.Id" a> -->
-                    <!--like og dislike til hver thread-->
                     <button class="fa fa-thumbs-up" style="padding:2px;color:green; background-color:white;font-size:25px; border-style:none"
                     @onclick="() => UserCommentLike(comment.Comment_Id)"></button>
 
@@ -75,7 +76,7 @@
                 Comment
             </InputText>
 
-            <button type="submit"  @onclick="PostComment">Post comment</button>
+            <button style="color:white;" class="postcomment" type="submit"  @onclick="PostComment">Post comment</button>
          </div>
    </EditForm> 
 }
@@ -85,11 +86,11 @@
     private CommentModel commentModel = new CommentModel();
     [Parameter]
     public int Id { get; set; }
+    private int id;
 
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        Console.WriteLine("ThreadPostCount: " + MainLayoutAndData.ThreadPosts.Count);
         commentModel.User_Id = MainLayoutAndData.Comments.Count == 0 ? 1 : MainLayoutAndData.Comments[0].User_Id;
 
         //Won't have more than one subsribed to "RefreshPage"
@@ -111,17 +112,21 @@
         Comment commentNew = new Comment(Convert.ToInt32(user.User_Id), Id + 1, commentModel.Text, string.Empty, DateTime.Now);
 
         //Adding 2 times. For visual and to set it in database.
-        MainLayoutAndData.Comments.Add(commentNew);
         dbService.PostComment(commentNew);
+        MainLayoutAndData.Comments.Add(commentNew);
     }
 
-    private  void UserCommentLike(long commentIndex)
+    private  void UserCommentLike(long comment_id)
     {
-        dbService.PutCommentVote(Convert.ToInt32(commentIndex), 1);
+        Comment comment = MainLayoutAndData.Comments.FirstOrDefault(c => c.Comment_Id == comment_id);
+        comment.Vote += 1;
+        dbService.PutCommentVote(comment);
     }
-    private void UserCommentDislike(long commentIndex)
+    private void UserCommentDislike(long comment_id)
     {
-        dbService.PutCommentVote(Convert.ToInt32(commentIndex), -1);
+        Comment comment = MainLayoutAndData.Comments.FirstOrDefault(c => c.Comment_Id == comment_id);
+        comment.Vote -= 1;
+        dbService.PutCommentVote(comment);
     }
 
 }

@@ -4,9 +4,16 @@
     flex-direction: column;
 }
 
+/*Mangler Main og sidebar i todolist */
 main {
     flex: 1;
+    background-color: #DAE0E6;
 }
+
+.sidebar {
+    background-color: #DAE0E6;
+}
+
 
 .top-row {
     background-color: #f7f7f7;

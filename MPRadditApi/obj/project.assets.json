@@ -1262,11 +1262,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jacob vestergaard\\documents\\SkoleBlazor\\MPRadditApi-Copy\\MPRadditApi.csproj",
+      "projectUniqueName": "C:\\Users\\Jacob vestergaard\\Documents\\SkoleBlazor\\MPRaddit_JJ\\MPRadditApi\\MPRadditApi.csproj",
       "projectName": "MPRadditApi",
-      "projectPath": "C:\\Users\\Jacob vestergaard\\documents\\SkoleBlazor\\MPRadditApi-Copy\\MPRadditApi.csproj",
+      "projectPath": "C:\\Users\\Jacob vestergaard\\Documents\\SkoleBlazor\\MPRaddit_JJ\\MPRadditApi\\MPRadditApi.csproj",
       "packagesPath": "C:\\Users\\Jacob vestergaard\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jacob vestergaard\\documents\\SkoleBlazor\\MPRadditApi-Copy\\obj\\",
+      "outputPath": "C:\\Users\\Jacob vestergaard\\Documents\\SkoleBlazor\\MPRaddit_JJ\\MPRadditApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

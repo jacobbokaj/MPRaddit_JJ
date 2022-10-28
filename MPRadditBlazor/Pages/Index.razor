@@ -1,16 +1,14 @@
 ﻿@page "/"
+@using MiniProjectRaddit.Model
 @using MiniProjectRaddit.Service
 @inject DbService dbService
 
 
-<PageTitle>Todo List</PageTitle>
-
-<h2>Create threadPost</h2>
-<a href="https://localhost:7082/threadPostNew">Click on me!😩👌 </a>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-@if (MainLayoutAndData.ThreadPosts.Count == 0)
+
+@if (MainLayoutAndData.Users.Count == 0)
 {
-    <h3>Loading... ThreadPosts</h3>
+    <h2>Loading Users....</h2>
 }
 else
 {
@@ -27,14 +25,12 @@ else
 
             @foreach (var thread in MainLayoutAndData.ThreadPosts)
             {
-                //tr -> table ?
                 <tr class="titlebox">
                     <!-- Id-1 so the list starts at 0.-->
                     <td> <a href="@($"https://localhost:7082/threadPost/{thread.ThreadPost_Id -1}")">@thread.Title</a> </td>
                     <td>@thread.PostDateTime</td>
                     <td>@thread.Vote</td>
-                    <!-- <a href="/post/snabelA post.Id" a> -->
-                    <!--like and dislike to each thread-->
+
                     <button class="fa fa-thumbs-up" style="padding:2px;color:green; background-color:white;font-size:25px; border-style:none"
                     @onclick="() => ThreadPostLike(thread.ThreadPost_Id)"></button>
 
@@ -64,13 +60,17 @@ else
         StateHasChanged();
     }
 
-    private void ThreadPostLike(long threadIndex)
+    private void ThreadPostLike(long threadPost_id)
     {
-      MainLayoutAndData.ThreadPosts.FirstOrDefault(t => t.ThreadPost_Id == threadIndex).Vote++;
+        ThreadPost threadPost = MainLayoutAndData.ThreadPosts.FirstOrDefault(t => t.ThreadPost_Id == threadPost_id);
+        threadPost.Vote += 1;
+        dbService.PutThreadPostVote(threadPost);
     }
 
-    private void ThreadPostDislike(long threadIndex)
+    private void ThreadPostDislike(long threadPost_id)
     {
-         MainLayoutAndData.ThreadPosts.FirstOrDefault(t => t.ThreadPost_Id == threadIndex).Vote--;
+         ThreadPost threadPost = MainLayoutAndData.ThreadPosts.FirstOrDefault(t => t.ThreadPost_Id == threadPost_id);
+         threadPost.Vote -= 1;
+         dbService.PutThreadPostVote(threadPost);
     }
 }

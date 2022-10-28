@@ -243,10 +243,10 @@ namespace MiniProjectRadditDatabase.Service
 
         public string PutThreadPostVote(int threadPostId, int vote)
         {
+            Console.WriteLine("Jeg er inde votes: " + vote);
             var threadPost = db.ThreadPosts.FirstOrDefault(t => t.ThreadPost_Id == threadPostId);
-            threadPost.Vote += vote;
+            threadPost.Vote = vote;
             db.SaveChanges();
-          //  comment.Vote += vote;
             return "Voted";
         }
 
