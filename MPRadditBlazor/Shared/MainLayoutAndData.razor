@@ -28,6 +28,9 @@
     //Static gives all pages possibility to get the data from this script/razor.
     public static List<User> Users { get; private set; } = new List<User>();
     public static List<Comment> Comments { get; private set; } = new List<Comment>();
+    /// <summary>
+    /// The list list sorted.
+    /// </summary>
     public static List<ThreadPost> ThreadPosts { get; private set; } = new List<ThreadPost>();
     /// <summary>
     //Will Refresh the currently page, when the data is "loaded".
@@ -46,7 +49,9 @@
         {
             Users = await dbService.GetUsers();
             ThreadPosts = await dbService.GetThreadPosts();
+            ThreadPosts.Sort((x, y) => DateTime.Compare(x.PostDateTime, y.PostDateTime));
             Comments = await dbService.GetComments();
+
             RefreshPage?.Invoke();
         }
     }

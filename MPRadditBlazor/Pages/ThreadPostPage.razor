@@ -21,6 +21,7 @@
     <h2>@MainLayoutAndData.ThreadPosts[Id].Title</h2>
     <p>@MainLayoutAndData.ThreadPosts[Id].Text</p>
     <p>@MainLayoutAndData.ThreadPosts[Id].PostDateTime</p>
+    <p>Created by: @userPoster</p>
     <p>@MainLayoutAndData.ThreadPosts[Id].Vote</p>
 </div>
 
@@ -87,12 +88,12 @@
     [Parameter]
     public int Id { get; set; }
     private int id;
+    private string userPoster;
 
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        commentModel.User_Id = MainLayoutAndData.Comments.Count == 0 ? 1 : MainLayoutAndData.Comments[0].User_Id;
-
+        RefreshPage();
         //Won't have more than one subsribed to "RefreshPage"
         MainLayoutAndData.RefreshPage -= RefreshPage;
         MainLayoutAndData.RefreshPage += RefreshPage;
@@ -104,6 +105,11 @@
     private void RefreshPage()
     {
         StateHasChanged();
+        if(MainLayoutAndData.Users.Count > 0)
+        {
+            userPoster = MainLayoutAndData.Users.FirstOrDefault(u => u.User_Id == MainLayoutAndData.ThreadPosts[Id].User_Id).Name;
+            commentModel.User_Id = MainLayoutAndData.Comments[0].User_Id;         
+        }
     }
     private void PostComment(){
         User user = MainLayoutAndData.Users.FirstOrDefault(u => u.User_Id == commentModel.User_Id);

@@ -56,12 +56,24 @@
     private string threadPostCreated;
 
     protected override void OnInitialized()
+    {       
+        threadPostCreated = string.Empty;
+        RefreshPage();
+        //Won't have more than one subsribed to "RefreshPage"
+        MainLayoutAndData.RefreshPage -= RefreshPage;
+        MainLayoutAndData.RefreshPage += RefreshPage;
+    }
+     /// <summary>
+    /// Refresh the page, when all data is in Users,Comments and ThreadPosts In script "MainLayoutAndData"
+    /// Only used for when the website is open in this page at the start
+    /// </summary>
+    private void RefreshPage()
     {
+        StateHasChanged();
         if(MainLayoutAndData.Users.Count > 0)
         {
             userName = MainLayoutAndData.Users[0].Name;           
         }
-        threadPostCreated = string.Empty;
     }
     private void PostThread()
     {
@@ -77,6 +89,7 @@
                 dbService.PostThreadPost(threadPost);
 
                 MainLayoutAndData.ThreadPosts.Add(threadPost);
+                MainLayoutAndData.ThreadPosts.Sort((x, y) => DateTime.Compare(x.PostDateTime, y.PostDateTime));
                 //So the last ThreadPost in the list visuel will not have ThreadPost_Id=0.
                 MainLayoutAndData.ThreadPosts[MainLayoutAndData.ThreadPosts.Count - 1].ThreadPost_Id = MainLayoutAndData.ThreadPosts.Count;
                 break;

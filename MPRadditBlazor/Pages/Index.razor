@@ -26,8 +26,7 @@ else
             @foreach (var thread in MainLayoutAndData.ThreadPosts)
             {
                 <tr class="titlebox">
-                    <!-- Id-1 so the list starts at 0.-->
-                    <td> <a href="@($"https://localhost:7082/threadPost/{thread.ThreadPost_Id -1}")">@thread.Title</a> </td>
+                    <td> <a href="@($"https://localhost:7082/threadPost/{MainLayoutAndData.ThreadPosts.IndexOf(thread)}")">@thread.Title</a> </td>
                     <td>@thread.PostDateTime</td>
                     <td>@thread.Vote</td>
 
@@ -47,10 +46,13 @@ else
     protected override void OnInitialized()
     {
         base.OnInitialized();
+        StateHasChanged();
+
         //Won't have more than one subsribed to "RefreshPage"
         MainLayoutAndData.RefreshPage -= RefreshPage;
         MainLayoutAndData.RefreshPage += RefreshPage;
     }
+
     /// <summary>
     /// Refresh the page, when all data is in Users,Comments and ThreadPosts In script "MainLayoutAndData"
     /// Only used for when the website is open in this page at the start
@@ -59,7 +61,6 @@ else
     {
         StateHasChanged();
     }
-
     private void ThreadPostLike(long threadPost_id)
     {
         ThreadPost threadPost = MainLayoutAndData.ThreadPosts.FirstOrDefault(t => t.ThreadPost_Id == threadPost_id);
