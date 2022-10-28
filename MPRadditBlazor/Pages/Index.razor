@@ -1,0 +1,76 @@
+﻿@page "/"
+@using MiniProjectRaddit.Service
+@inject DbService dbService
+
+
+<PageTitle>Todo List</PageTitle>
+
+<h2>Create threadPost</h2>
+<a href="https://localhost:7082/threadPostNew">Click on me!😩👌 </a>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+@if (MainLayoutAndData.ThreadPosts.Count == 0)
+{
+    <h3>Loading... ThreadPosts</h3>
+}
+else
+{
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>PostDateTime</th>
+                <th>Votes</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var thread in MainLayoutAndData.ThreadPosts)
+            {
+                //tr -> table ?
+                <tr class="titlebox">
+                    <!-- Id-1 so the list starts at 0.-->
+                    <td> <a href="@($"https://localhost:7082/threadPost/{thread.ThreadPost_Id -1}")">@thread.Title</a> </td>
+                    <td>@thread.PostDateTime</td>
+                    <td>@thread.Vote</td>
+                    <!-- <a href="/post/snabelA post.Id" a> -->
+                    <!--like and dislike to each thread-->
+                    <button class="fa fa-thumbs-up" style="padding:2px;color:green; background-color:white;font-size:25px; border-style:none"
+                    @onclick="() => ThreadPostLike(thread.ThreadPost_Id)"></button>
+
+                    <button class="fa fa-thumbs-down" style="padding:2px;color:red;background-color:white;font-size:25px; border-style:none"
+                    @onclick="() => ThreadPostDislike(thread.ThreadPost_Id)"></button>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        //Won't have more than one subsribed to "RefreshPage"
+        MainLayoutAndData.RefreshPage -= RefreshPage;
+        MainLayoutAndData.RefreshPage += RefreshPage;
+    }
+    /// <summary>
+    /// Refresh the page, when all data is in Users,Comments and ThreadPosts In script "MainLayoutAndData"
+    /// Only used for when the website is open in this page at the start
+    /// </summary>
+    private void RefreshPage()
+    {
+        StateHasChanged();
+    }
+
+    private void ThreadPostLike(long threadIndex)
+    {
+      MainLayoutAndData.ThreadPosts.FirstOrDefault(t => t.ThreadPost_Id == threadIndex).Vote++;
+    }
+
+    private void ThreadPostDislike(long threadIndex)
+    {
+         MainLayoutAndData.ThreadPosts.FirstOrDefault(t => t.ThreadPost_Id == threadIndex).Vote--;
+    }
+}

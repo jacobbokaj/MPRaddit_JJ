@@ -1,0 +1,55 @@
+﻿@using MiniProjectRaddit.Model
+@inherits LayoutComponentBase
+@using Microsoft.Extensions.Configuration
+@using MiniProjectRaddit.Model
+@using MiniProjectRaddit.Service;
+@inject DbService dbService
+@inject IConfiguration iConnfiguration
+
+
+
+
+<div class="page">
+     <div class="sidebar">
+        <NavMenu />
+    </div>
+    <main>
+        @*<div class="top-row px-4">
+            <a href="https://github.com/kdorland/softark-fall-2022/" target="_blank">About</a>
+            </div>*@
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+@code {
+
+    //Static gives all pages possibility to get the data from this script/razor.
+    public static List<User> Users { get; private set; } = new List<User>();
+    public static List<Comment> Comments { get; private set; } = new List<Comment>();
+    public static List<ThreadPost> ThreadPosts { get; private set; } = new List<ThreadPost>();
+    /// <summary>
+    /// Will example refresh when data are GET,POST or PUT with the SQLite database.
+    /// </summary>
+    public static event Action RefreshPage;
+
+
+
+    protected override async void OnInitialized()
+    {
+        base.OnInitialized();
+        //Make sure the data only loads once when moving between pages.
+        //Users are the most important to have for making it possible to create threadposts, create comments and vote
+        if (Users.Count == 0)
+        {
+            Console.WriteLine("Hejsa fra kurt");
+            Users = await dbService.GetUsers();
+            ThreadPosts = await dbService.GetThreadPosts();
+            Comments = await dbService.GetComments();
+
+            Console.WriteLine("ThreadPosts Count: " + ThreadPosts.Count + "  Users: " + Users.Count); ;
+            RefreshPage?.Invoke();
+        }
+    }
+}

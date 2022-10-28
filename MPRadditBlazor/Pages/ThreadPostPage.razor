@@ -1,0 +1,127 @@
+﻿@page "/threadPost/{Id:int}"
+@using MiniProjectRaddit.Model
+@using MiniProjectRaddit.EditFormModel;
+@using MiniProjectRaddit.Service
+<PageTitle>ThreadPage</PageTitle>
+@inject DbService dbService;
+<h3>ThreadPage</h3>
+
+<td> @Id </td>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<a href="/"><button type="button" class="btn btn-primary"> Go back to front page</button> </a>
+<!--Makes sure there won't be out of index-->
+@if(MainLayoutAndData.ThreadPosts.Count == 0)
+{
+    <h2>Loading threadPost</h2>
+}else
+{
+<div class="threadbox">
+    <h2>@MainLayoutAndData.ThreadPosts[Id].Title</h2>
+    <p>@MainLayoutAndData.ThreadPosts[Id].Text</p>
+    <p>@MainLayoutAndData.ThreadPosts[Id].PostDateTime</p>
+    <p>@MainLayoutAndData.ThreadPosts[Id].Vote</p>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Votes</th>
+            <th>PostDateTime</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var comment in MainLayoutAndData.Comments)
+        {
+            if (MainLayoutAndData.ThreadPosts[Id].ThreadPost_Id == comment.ThreadPost_Id)
+            {
+                //tr -> table ?
+                <tr class="titlebox">
+                    <td>@MainLayoutAndData.Users.FirstOrDefault(u => u.User_Id == comment.User_Id).Name </td>
+                    <td>@comment.Text</td>
+                    <td>@comment.PostDateTime</td>
+                    <td>@comment.Vote</td>
+
+                    <!-- <a href="/post/snabelA post.Id" a> -->
+                    <!--like og dislike til hver thread-->
+                    <button class="fa fa-thumbs-up" style="padding:2px;color:green; background-color:white;font-size:25px; border-style:none"
+                    @onclick="() => UserCommentLike(comment.Comment_Id)"></button>
+
+                    <button class="fa fa-thumbs-down" style="padding:2px;color:red;background-color:white;font-size:25px; border-style:none"
+                    @onclick="() => UserCommentDislike(comment.Comment_Id)"></button>
+
+                </tr>               
+            }
+        }
+    </tbody>
+</table>
+
+
+    <h2>EditForm</h2>
+   <EditForm Model="@commentModel">
+       <DataAnnotationsValidator />
+       <ValidationSummary />
+         <div>
+             
+            <InputSelect @bind-Value="commentModel.User_Id">
+                @foreach (var user in MainLayoutAndData.Users)
+                {
+                    <option value="@user.User_Id">@user.Name</option>
+                }
+            </InputSelect>
+
+            <InputText @bind-Value="commentModel.Text">
+                Comment
+            </InputText>
+
+            <button type="submit"  @onclick="PostComment">Post comment</button>
+         </div>
+   </EditForm> 
+}
+
+
+@code {
+    private CommentModel commentModel = new CommentModel();
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Console.WriteLine("ThreadPostCount: " + MainLayoutAndData.ThreadPosts.Count);
+        commentModel.User_Id = MainLayoutAndData.Comments.Count == 0 ? 1 : MainLayoutAndData.Comments[0].User_Id;
+
+        //Won't have more than one subsribed to "RefreshPage"
+        MainLayoutAndData.RefreshPage -= RefreshPage;
+        MainLayoutAndData.RefreshPage += RefreshPage;
+    }
+    /// <summary>
+    /// Refresh the page, when all data is in Users,Comments and ThreadPosts In script "MainLayoutAndData"
+    /// Only used for when the website is open in this page at the start
+    /// </summary>
+    private void RefreshPage()
+    {
+        StateHasChanged();
+    }
+    private void PostComment(){
+        User user = MainLayoutAndData.Users.FirstOrDefault(u => u.User_Id == commentModel.User_Id);
+
+        //Id +1 because ThreadPost_Id/Database start at 1 and list/array start at 0.
+        Comment commentNew = new Comment(Convert.ToInt32(user.User_Id), Id + 1, commentModel.Text, string.Empty, DateTime.Now);
+
+        //Adding 2 times. For visual and to set it in database.
+        MainLayoutAndData.Comments.Add(commentNew);
+        dbService.PostComment(commentNew);
+    }
+
+    private  void UserCommentLike(long commentIndex)
+    {
+        dbService.PutCommentVote(Convert.ToInt32(commentIndex), 1);
+    }
+    private void UserCommentDislike(long commentIndex)
+    {
+        dbService.PutCommentVote(Convert.ToInt32(commentIndex), -1);
+    }
+
+}

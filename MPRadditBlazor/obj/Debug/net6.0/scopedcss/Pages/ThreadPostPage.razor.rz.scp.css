@@ -1,0 +1,20 @@
+.titlebox[b-1tz461fsqd] {
+    /*
+    outline:solid;
+    background-color: white;
+    padding-inline: 100px;
+    border-spacing: 100px;
+        */
+    /*WORK IN PROGRESS*/
+    border: 2px solid black;
+    background-color: white;
+    border-collapse: separate;
+    border-spacing: 50px;
+}
+.threadbox[b-1tz461fsqd] {
+    background-color: lightgrey;
+    width: 300px;
+    border: 15px solid green;
+    padding: 40px;
+    margin: 20px;
+}

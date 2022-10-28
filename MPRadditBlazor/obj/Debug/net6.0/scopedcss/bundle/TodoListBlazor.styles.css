@@ -1,0 +1,169 @@
+/* /Pages/ThreadPostPage.razor.rz.scp.css */
+.titlebox[b-1tz461fsqd] {
+    /*
+    outline:solid;
+    background-color: white;
+    padding-inline: 100px;
+    border-spacing: 100px;
+        */
+    /*WORK IN PROGRESS*/
+    border: 2px solid black;
+    background-color: white;
+    border-collapse: separate;
+    border-spacing: 50px;
+}
+.threadbox[b-1tz461fsqd] {
+    background-color: lightgrey;
+    width: 300px;
+    border: 15px solid green;
+    padding: 40px;
+    margin: 20px;
+}
+/* /Shared/MainLayoutAndData.razor.rz.scp.css */
+.page[b-vpb00k7avh] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main[b-vpb00k7avh] {
+    flex: 1;
+}
+
+.top-row[b-vpb00k7avh] {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row[b-vpb00k7avh]  a, .top-row[b-vpb00k7avh]  .btn-link {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+        text-decoration: none;
+    }
+
+    .top-row[b-vpb00k7avh]  a:hover, .top-row[b-vpb00k7avh]  .btn-link:hover {
+        text-decoration: underline;
+    }
+
+    .top-row[b-vpb00k7avh]  a:first-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width: 640.98px) {
+    .top-row:not(.auth)[b-vpb00k7avh] {
+        display: none;
+    }
+
+    .top-row.auth[b-vpb00k7avh] {
+        justify-content: space-between;
+    }
+
+    .top-row[b-vpb00k7avh]  a, .top-row[b-vpb00k7avh]  .btn-link {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page[b-vpb00k7avh] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-vpb00k7avh] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-vpb00k7avh] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .top-row.auth[b-vpb00k7avh]  a:first-child {
+        flex: 1;
+        text-align: right;
+        width: 0;
+    }
+
+    .top-row[b-vpb00k7avh], article[b-vpb00k7avh] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+/* /Shared/NavMenu.razor.rz.scp.css */
+.navbar-toggler[b-ka0ic03z4l] {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+/*Raddit logo, reddit color code #DAE0E6*/
+.top-row[b-ka0ic03z4l] {
+    height: 53px;
+    length: 150px;
+    background-image: url("radditlogo3.png");
+    background-repeat: no-repeat;
+}
+
+.navbar-brand[b-ka0ic03z4l] {
+    font-size: 1.1rem;
+}
+
+.oi[b-ka0ic03z4l] {
+    width: 2rem;
+    font-size: 1.1rem;
+    vertical-align: text-top;
+    top: -2px;
+}
+
+.nav-item[b-ka0ic03z4l] {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+    .nav-item:first-of-type[b-ka0ic03z4l] {
+        padding-top: 1rem;
+    }
+
+    .nav-item:last-of-type[b-ka0ic03z4l] {
+        padding-bottom: 1rem;
+    }
+
+    /* Knap f�r tryk*/
+    .nav-item[b-ka0ic03z4l]  a {
+        color: #ffffff;
+        border-radius: 4px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        line-height: 3rem;
+        border-radius: 200px;
+        font-family: Verdana;
+        font-size: 16px;
+        text-align: center;
+    }
+
+        .nav-item[b-ka0ic03z4l]  a.active {
+            background-color: #FF4500;
+            opacity: 50%;
+        }
+
+        /*Hover p� knap*/
+        .nav-item[b-ka0ic03z4l]  a:hover {
+            opacity: 90%;
+        }
+
+@media (min-width: 641px) {
+    .navbar-toggler[b-ka0ic03z4l] {
+        display: none;
+    }
+
+    .collapse[b-ka0ic03z4l] {
+        /* Never collapse the sidebar for wide screens */
+        display: block;
+    }
+}
