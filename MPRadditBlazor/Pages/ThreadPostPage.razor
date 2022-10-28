@@ -93,7 +93,7 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-       // RefreshPage();
+        RefreshPage();
         //Won't have more than one subsribed to "RefreshPage"
         MainLayoutAndData.RefreshPage -= RefreshPage;
         MainLayoutAndData.RefreshPage += RefreshPage;
@@ -104,18 +104,17 @@
     /// </summary>
     private void RefreshPage()
     {
-        StateHasChanged();
+        if(MainLayoutAndData.Users.Count > 0)
+        {
             userPoster = MainLayoutAndData.Users.FirstOrDefault(u => u.User_Id == MainLayoutAndData.ThreadPosts[Id].User_Id).Name;
             Console.WriteLine("Hej");
             commentModel.User_Id = MainLayoutAndData.Comments[0].User_Id;                    
-        if(MainLayoutAndData.Users.Count > 0)
-        {
         }
+        StateHasChanged();
     }
     private void PostComment(){
         User user = MainLayoutAndData.Users.FirstOrDefault(u => u.User_Id == commentModel.User_Id);
 
-        //Id +1 because ThreadPost_Id/Database start at 1 and list/array start at 0.
         Comment commentNew = new Comment(Convert.ToInt32(user.User_Id),Convert.ToInt32(MainLayoutAndData.ThreadPosts[Id].ThreadPost_Id), commentModel.Text, string.Empty, DateTime.Now);
 
         //Adding 2 times. For visual and to set it in database.

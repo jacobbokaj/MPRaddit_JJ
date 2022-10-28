@@ -69,11 +69,11 @@
     /// </summary>
     private void RefreshPage()
     {
-        StateHasChanged();
         if(MainLayoutAndData.Users.Count > 0)
         {
             userName = MainLayoutAndData.Users[0].Name;           
         }
+        StateHasChanged();
     }
     private void PostThread()
     {
