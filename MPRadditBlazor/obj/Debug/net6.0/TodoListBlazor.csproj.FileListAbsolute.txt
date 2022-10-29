@@ -4069,8 +4069,6 @@ C:\Users\Jacob vestergaard\Documents\SkoleBlazor\MPRaddit_JJ\MPRadditBlazor\obj\
 C:\Users\Jacob vestergaard\Documents\SkoleBlazor\MPRaddit_JJ\MPRadditBlazor\obj\Debug\net6.0\build-gz\7QtKTcIi.gz
 C:\Users\Jacob vestergaard\Documents\SkoleBlazor\MPRaddit_JJ\MPRadditBlazor\obj\Debug\net6.0\build-gz\m8RVzpkW.gz
 C:\Users\Jacob vestergaard\Documents\SkoleBlazor\MPRaddit_JJ\MPRadditBlazor\obj\Debug\net6.0\build-gz\xtiYI9Mf.gz
-C:\Users\Jacob vestergaard\Documents\SkoleBlazor\MPRaddit_JJ\MPRadditBlazor\obj\Debug\net6.0\build-gz\kcr4B+hk.gz
-C:\Users\Jacob vestergaard\Documents\SkoleBlazor\MPRaddit_JJ\MPRadditBlazor\obj\Debug\net6.0\build-gz\xi+mrZTs.gz
 C:\Users\Jacob vestergaard\Documents\SkoleBlazor\MPRaddit_JJ\MPRadditBlazor\obj\Debug\net6.0\build-gz\TLP1uNTd.gz
 C:\Users\Jacob vestergaard\Documents\SkoleBlazor\MPRaddit_JJ\MPRadditBlazor\obj\Debug\net6.0\blazor.boot.json
 C:\Users\Jacob vestergaard\Documents\SkoleBlazor\MPRaddit_JJ\MPRadditBlazor\obj\Debug\net6.0\staticwebassets.build.json
@@ -4087,3 +4085,5 @@ C:\Users\Jacob vestergaard\Documents\SkoleBlazor\MPRaddit_JJ\MPRadditBlazor\obj\
 C:\Users\Jacob vestergaard\Documents\SkoleBlazor\MPRaddit_JJ\MPRadditBlazor\obj\Debug\net6.0\refint\TodoListBlazor.dll
 C:\Users\Jacob vestergaard\Documents\SkoleBlazor\MPRaddit_JJ\MPRadditBlazor\obj\Debug\net6.0\TodoListBlazor.pdb
 C:\Users\Jacob vestergaard\Documents\SkoleBlazor\MPRaddit_JJ\MPRadditBlazor\obj\Debug\net6.0\ref\TodoListBlazor.dll
+C:\Users\Jacob vestergaard\Documents\SkoleBlazor\MPRaddit_JJ\MPRAdditBlazor\obj\Debug\net6.0\build-gz\f7kOBbGf.gz
+C:\Users\Jacob vestergaard\Documents\SkoleBlazor\MPRaddit_JJ\MPRAdditBlazor\obj\Debug\net6.0\build-gz\Ow06Psmn.gz

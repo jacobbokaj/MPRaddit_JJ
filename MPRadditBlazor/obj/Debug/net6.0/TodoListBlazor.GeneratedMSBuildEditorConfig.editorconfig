@@ -11,37 +11,37 @@ build_property.EnableTrimAnalyzer = true
 build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = TodoListBlazor
 build_property.RootNamespace = TodoListBlazor
-build_property.ProjectDir = C:\Users\Jacob vestergaard\Documents\SkoleBlazor\MPRaddit_JJ\MPRadditBlazor\
+build_property.ProjectDir = C:\Users\Jacob vestergaard\Documents\SkoleBlazor\MPRaddit_JJ\MPRAdditBlazor\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Jacob vestergaard\Documents\SkoleBlazor\MPRaddit_JJ\MPRadditBlazor
+build_property.MSBuildProjectDirectory = C:\Users\Jacob vestergaard\Documents\SkoleBlazor\MPRaddit_JJ\MPRAdditBlazor
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Jacob vestergaard/Documents/SkoleBlazor/MPRaddit_JJ/MPRadditBlazor/App.razor]
+[C:/Users/Jacob vestergaard/Documents/SkoleBlazor/MPRaddit_JJ/MPRAdditBlazor/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jacob vestergaard/Documents/SkoleBlazor/MPRaddit_JJ/MPRadditBlazor/_Imports.razor]
+[C:/Users/Jacob vestergaard/Documents/SkoleBlazor/MPRaddit_JJ/MPRAdditBlazor/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jacob vestergaard/Documents/SkoleBlazor/MPRaddit_JJ/MPRadditBlazor/Pages/Index.razor]
+[C:/Users/Jacob vestergaard/Documents/SkoleBlazor/MPRaddit_JJ/MPRAdditBlazor/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-wbhsjrp0cd
 
-[C:/Users/Jacob vestergaard/Documents/SkoleBlazor/MPRaddit_JJ/MPRadditBlazor/Pages/ThreadPostNewPage.razor]
+[C:/Users/Jacob vestergaard/Documents/SkoleBlazor/MPRaddit_JJ/MPRAdditBlazor/Pages/ThreadPostNewPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGhyZWFkUG9zdE5ld1BhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-nbd54tv04d
 
-[C:/Users/Jacob vestergaard/Documents/SkoleBlazor/MPRaddit_JJ/MPRadditBlazor/Pages/ThreadPostPage.razor]
+[C:/Users/Jacob vestergaard/Documents/SkoleBlazor/MPRaddit_JJ/MPRAdditBlazor/Pages/ThreadPostPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGhyZWFkUG9zdFBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-1tz461fsqd
 
-[C:/Users/Jacob vestergaard/Documents/SkoleBlazor/MPRaddit_JJ/MPRadditBlazor/Shared/MainLayoutAndData.razor]
+[C:/Users/Jacob vestergaard/Documents/SkoleBlazor/MPRaddit_JJ/MPRAdditBlazor/Shared/MainLayoutAndData.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXRBbmREYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-vpb00k7avh
 
-[C:/Users/Jacob vestergaard/Documents/SkoleBlazor/MPRaddit_JJ/MPRadditBlazor/Shared/NavMenu.razor]
+[C:/Users/Jacob vestergaard/Documents/SkoleBlazor/MPRaddit_JJ/MPRAdditBlazor/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ka0ic03z4l
