@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jacob vestergaard\\Documents\\SkoleBlazor\\MPRaddit_JJ\\MPRAdditBlazor\\TodoListBlazor.csproj": {}
+    "C:\\Users\\Jacob vestergaard\\Documents\\SkoleBlazor\\MPRaddit_JJ\\MPRadditBlazor\\TodoListBlazor.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jacob vestergaard\\Documents\\SkoleBlazor\\MPRaddit_JJ\\MPRAdditBlazor\\TodoListBlazor.csproj": {
+    "C:\\Users\\Jacob vestergaard\\Documents\\SkoleBlazor\\MPRaddit_JJ\\MPRadditBlazor\\TodoListBlazor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jacob vestergaard\\Documents\\SkoleBlazor\\MPRaddit_JJ\\MPRAdditBlazor\\TodoListBlazor.csproj",
+        "projectUniqueName": "C:\\Users\\Jacob vestergaard\\Documents\\SkoleBlazor\\MPRaddit_JJ\\MPRadditBlazor\\TodoListBlazor.csproj",
         "projectName": "TodoListBlazor",
-        "projectPath": "C:\\Users\\Jacob vestergaard\\Documents\\SkoleBlazor\\MPRaddit_JJ\\MPRAdditBlazor\\TodoListBlazor.csproj",
+        "projectPath": "C:\\Users\\Jacob vestergaard\\Documents\\SkoleBlazor\\MPRaddit_JJ\\MPRadditBlazor\\TodoListBlazor.csproj",
         "packagesPath": "C:\\Users\\Jacob vestergaard\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jacob vestergaard\\Documents\\SkoleBlazor\\MPRaddit_JJ\\MPRAdditBlazor\\obj\\",
+        "outputPath": "C:\\Users\\Jacob vestergaard\\Documents\\SkoleBlazor\\MPRaddit_JJ\\MPRadditBlazor\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
