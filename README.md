@@ -22,7 +22,6 @@ n kan kommunikere.
 Mandag den 25-10-2022 Fik lavet mere på api, noget galt med http client i blazor, derfor skal vi have hjælp til at fixe det på onsdag 27-10-2022. For ellers skal et nyt projekt laves og sætte alle vores ting ind, som vi gerne vil undgå
 
 Onsdag den 26-10-2022 Problemer med projektet, fordi den siger “Cannot consume scoped service 'System.Net.Http.HttpClient' from singleton 'MiniProjectRaddit.Service.DbService'.” Når vi vil kommunikere med blazor og httpclient. Prøvede lidt tid, men vi ville i bruge for meget tid på det, derfor brugte vi Softwarearkitektur “TodoList blazor project”, fordi det virker og vi kan derfor spare tid. 
-
 Vi kunne ikke få forbindelse imellem API program og blazor, fordi “CORS” blocked det, selvom vi  har CORS i vores api program. Derfor brugte vi “hardcore data”. Gav mulighed for vi kunne fortsætte med at lave på hjemmesiden.
 
 Torsdag den 27-10-2022 Vi fandt ud af med CORS at den blocker http, men det skal være https. http har 5000 og https har 5001.
