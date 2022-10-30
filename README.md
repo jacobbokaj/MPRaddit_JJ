@@ -31,3 +31,4 @@ Torsdag den 27-10-2022 Vi fandt ud af med CORS at den blocker http, men det skal
 
 Fredag den 28-10-2022 Fik sat Blazor programmet og Api programmet sat i en mappe og oploadet det til github. Opdateret lidt visuelt, fixet bugs, men 1 bug med CORS ladet vi værre, fordi det ikke ødelagde hjemmesiden .Testet at api virker med dotnet build, dotnet ef database update og dotnet run, som det gjorde på vores pc’er. Fik afleveret opgaven.
 
+Lørdag den 29-10-2022 testede vi lidt videre og se om vi kunne finde nogle bugs. Fandt den bug med CORS med "Coment"og "treadPost", men ødelægger ikke hjemmesiden, fordi den bare skal refreshed efter "Comment" eller "ThreadPost" bliver lavet
